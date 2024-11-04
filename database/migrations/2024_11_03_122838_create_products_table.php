@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->nullable();
-            $table->longText('description');
-            $table->decimal('price', 8, 2);
+            $table->longText('description')->nullable();
+            $table->decimal('price', 8, 2)->default(0);
+            $table->string('currency')->default('RWF');
             $table->integer('quantity')->default(0);
-            $table->string('image_url');
+            $table->string('measurement_unit')->nullable();
+            $table->string('featured_image');
             $table->text('category_id')->nullable();
             $table->boolean('featured')->default(false);
             $table->enum('status', ['draft', 'available', 'sold', 'unavailable'])->default('draft');

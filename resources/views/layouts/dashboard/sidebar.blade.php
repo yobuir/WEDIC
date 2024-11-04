@@ -74,6 +74,20 @@
                     </li>
 
                     <li>
+                        <a href=" {{ route('dashboard.project.') }}" wire:navigate
+                            class="flex items-center p-2  dark:text-gray-400 text-gray-900 rounded-lg  {{ request()->routeIS('dashboard.project.*') ? ' dark:bg-wedic-blue-700 dark:text-white bg-gray-100' : 'hover:bg-gray-100 dark:hover:text-black hover:dark:bg-wedic-blue-700' }} group">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125Z" />
+                            </svg>
+
+
+                            <span class="ms-3">Projects</span>
+                        </a>
+                    </li>
+
+                    <li>
                         <a href=" {{ route('dashboard.partners.') }}" wire:navigate
                             class="flex items-center p-2  dark:text-gray-400 text-gray-900 rounded-lg  {{ request()->routeIS('dashboard.partners.*') ? ' dark:bg-wedic-blue-700 dark:text-white bg-gray-100' : 'hover:bg-gray-100 dark:hover:text-black hover:dark:bg-wedic-blue-700' }} group">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -151,9 +165,15 @@
         <div class="flex flex-col gap-3">
 
             <div class="lg:block ">
-                <span class="flex gap-2">
-                    <i class="fa fa-shopping-bag" aria-hidden="true"></i> 
-                </span>
+                <a href="{{ route('dashboard.store') }}" wire:navigate
+                    class="flex items-center p-2 bg-wedic-blue-700  text-gray-100   rounded-lg  dark:hover:bg-wedic-blue-600 hover:bg-wedic-blue-600 dark:hover:text-white group">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6 w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
+                    </svg>
+                    <span class="ms-3">Store</span>
+                </a>
             </div>
         </div>
     </div>

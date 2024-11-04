@@ -1,48 +1,67 @@
-@props(['style' => session('flash.bannerStyle', 'success'), 'message' => session('flash.banner')])
-
-<div x-data="{{ json_encode(['show' => true, 'style' => $style, 'message' => $message]) }}"
-    :class="{ 'bg-blue-500': style == 'success', 'bg-red-700': style == 'danger', 'bg-yellow-500': style == 'warning', 'bg-gray-500': style != 'success' && style != 'danger' && style != 'warning'}"
-            style="display: none;"
-            x-show="show && message"
-            x-on:banner-message.window="
-                style = event.detail.style;
-                message = event.detail.message;
-                show = true;
-            ">
-    <div class="max-w-screen-xl mx-auto py-2 px-3 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between flex-wrap">
-            <div class="w-0 flex-1 flex items-center min-w-0">
-                <span class="flex p-2 rounded-lg" :class="{ 'bg-blue-600': style == 'success', 'bg-red-600': style == 'danger', 'bg-yellow-600': style == 'warning' }">
-                    <svg x-show="style == 'success'" class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+{{-- resources/views/livewire/banner.blade.php --}}
+{{-- Success Message --}}
+@if (session()->has('message'))
+    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)"
+        x-transition:enter="transform ease-out duration-300 transition"
+        x-transition:enter-start="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+        x-transition:enter-end="translate-y-0 opacity-100 sm:translate-x-0"
+        x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed bottom-6 right-6 flex items-end   w-[400px] px-4 py-6 sm:p-6 z-50
+        bg-white shadow-lg  rounded-lg  border-l-4 border-green-600">
+        <div class="w-full">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <svg class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <svg x-show="style == 'danger'" class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                    </svg>
-                    <svg x-show="style != 'success' && style != 'danger'" class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-                    </svg>
-                    <svg x-show="style == 'warning'" class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4v.01 0 0 " />
-                    </svg>
-                </span>
-
-                <p class="ms-3 font-medium text-sm text-white truncate" x-text="message"></p>
+                </div>
+                <div class="ml-3 w-0 flex-1 pt-0.5">
+                    <p class="text-sm font-medium text-gray-900">
+                        {{ session('message') }}
+                    </p>
+                </div>
+                <div class="ml-4 flex-shrink-0 flex">
+                    <button @click="show = false"
+                        class="inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        <span class="sr-only">Close</span>
+                        <i class="fa fa-close"></i>
+                    </button>
+                </div>
             </div>
+        </div>
 
-            <div class="shrink-0 sm:ms-3">
-                <button
-                    type="button"
-                    class="-me-1 flex p-2 rounded-md focus:outline-none sm:-me-2 transition"
-                    :class="{ 'hover:bg-blue-600 focus:bg-blue-600': style == 'success', 'hover:bg-red-600 focus:bg-red-600': style == 'danger', 'hover:bg-yellow-600 focus:bg-yellow-600': style == 'warning'}"
-                    aria-label="Dismiss"
-                    x-on:click="show = false">
-                    <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+    </div>
+@endif
+
+{{-- Error Message --}}
+@if (session()->has('error'))
+    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)"
+        x-transition:enter="transform ease-out duration-300 transition"
+        x-transition:enter-start="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+        x-transition:enter-end="translate-y-0 opacity-100 sm:translate-x-0"
+        x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed bottom-6 right-6 flex items-end   w-[400px] px-4 py-6 sm:p-6 z-50
+        bg-white shadow-lg  rounded-lg  border-l-4 border-red-600">
+        <div class=" w-full">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <i class="fa fa-close h-6 w-6 text-red-400"></i>
+                </div>
+                <div class="ml-3 w-0 flex-1 pt-0.5">
+                    <p class="text-sm font-medium text-gray-900">{{ session('error') }}</p>
+                </div>
+                <div class="ml-4 flex-shrink-0 flex">
+                    <button @click="show = false"
+                        class="inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+
+                        <span class="sr-only">Close</span>
+                        <i class="fa fa-close"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+@endif

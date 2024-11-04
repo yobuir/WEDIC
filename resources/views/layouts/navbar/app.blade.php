@@ -40,13 +40,13 @@
                         'text-black-500 hover:text-wedic-blue-500': scrolled || mobileMenu
                     }">
                     Expertise</a>
-                <a href="{{ route('aboutUs') }}" class="nav-link"
+                <a href="{{ route('projects') }}" class="nav-link"
                     :class="{
                         'text-wedic-blue-200 hover:text-wedic-blue-500': !scrolled && !
                             mobileMenu,
                         'text-black-500 hover:text-wedic-blue-500': scrolled || mobileMenu
                     }">
-                    About Us</a>
+                    Projects</a>
 
                 <a href="{{ route('contactUs') }}" class="nav-link"
                     :class="{
@@ -91,7 +91,10 @@
 
             <a href="{{ route('expertise') }}"
                 class="block px-3 py-2 rounded-md text-wedic-blue-900 hover:bg-wedic-blue-500/10 hover:text-wedic-blue-500">Expertise</a>
-                
+
+            <a href="{{ route('projects') }}"
+                class="block px-3 py-2 rounded-md text-wedic-blue-900 hover:bg-wedic-blue-500/10 hover:text-wedic-blue-500">Projects</a>
+
             <a href="{{ route('aboutUs') }}"
                 class="block px-3 py-2 rounded-md text-wedic-blue-900 hover:bg-wedic-blue-500/10 hover:text-wedic-blue-500">About
                 Us</a>

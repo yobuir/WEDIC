@@ -51,6 +51,21 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'ProductThumbnail' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/product/thumbnails'),
+            'url' => env('APP_URL') . '/storage/product/thumbnails',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'ProductImages' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/product/images'),
+            'url' => env('APP_URL') . '/storage/product/images',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
         'EventThumbnail' => [
             'driver' => 'local',
             'root' => storage_path('app/public/event/thumbnails'),
@@ -180,6 +195,8 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
         public_path('BlogThumbnail') => storage_path('app/public/blog/thumbnails'),
+        public_path('ProductThumbnail') => storage_path('app/public/product/thumbnails'), 
+        public_path('ProductImages') => storage_path('app/public/product/images'),
         public_path('EventThumbnail') => storage_path('app/public/event/thumbnails'),
         public_path('EventFiles') => storage_path('app/public/event/files'),
         public_path('ProjectThumbnail') => storage_path('app/public/project/thumbnails'),
