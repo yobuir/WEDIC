@@ -7,7 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'WEDIC') }} -
-        Rwanda's premier startup incubator dedicated to fostering innovation and international growth.</title>
+       Empowering Through
+Inclusive Excellence.</title>
     <meta name="description" content="WEDIC." />
     <link rel="icon" href="{{ asset('logo/fav_logo.png') }}" type="image/x-icon" />
     <!-- Fonts -->

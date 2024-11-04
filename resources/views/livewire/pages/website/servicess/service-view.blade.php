@@ -17,7 +17,7 @@
                  class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform {{ $activeTab === $index ? 'scale-105' : 'scale-100 opacity-75' }}">
                  <div
                      class="w-12 h-12 bg-{{ $service['color'] }}-100 rounded-lg flex items-center justify-center text-{{ $service['color'] }}-600 mb-6">
-                     <i class="fas fa-{{ $service['icon'] }}"></i>
+                     <i class="fas fa- {{ $service['icon'] }}"></i>
                  </div>
                  <h3 class="text-xl font-semibold mb-4">{{ $service['title'] }}</h3>
                  <ul class="space-y-3">

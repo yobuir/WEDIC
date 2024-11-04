@@ -14,7 +14,7 @@
                 <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-12">
                     Creating sustainable impact through women empowerment and disability inclusion consultancy services.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <div class="flex flex-col sm:flex-row gap-6 justify-center mb-5">
                     <a href="{{ route('services') }}"
                         class="group px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
                         Explore Services
@@ -53,7 +53,7 @@
                         <div
                             class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300">
                             <div class="relative h-48">
-                                <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}"
+                                <img src="https://images.unsplash.com/photo-1531857414472-edf16a1bb78c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="{{ $project['title'] }}"
                                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
                                 <div class="absolute top-4 right-4">
                                     <span class="px-4 py-2 bg-blue-600 text-white text-sm rounded-full">

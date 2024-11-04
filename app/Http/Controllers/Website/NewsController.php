@@ -35,7 +35,7 @@ class NewsController extends Controller
             'firstBlogFeatured' => $firstBlogFeatured,
             'fistTwoBlogs' => $fistTwoBlogs,
             'categories' => Category::where('status', 'published')
-                ->latest()
+            
                 ->get(),
         ]);
     }

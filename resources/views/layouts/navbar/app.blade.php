@@ -40,6 +40,14 @@
                         'text-black-500 hover:text-wedic-blue-500': scrolled || mobileMenu
                     }">
                     Expertise</a>
+                <a href="{{ route('projects') }}" class="nav-link"
+                    :class="{
+                        'text-wedic-blue-200 hover:text-wedic-blue-500': !scrolled && !
+                            mobileMenu,
+                        'text-black-500 hover:text-wedic-blue-500': scrolled || mobileMenu
+                    }">
+                    Projects</a>
+
                 <a href="{{ route('aboutUs') }}" class="nav-link"
                     :class="{
                         'text-wedic-blue-200 hover:text-wedic-blue-500': !scrolled && !
@@ -47,14 +55,15 @@
                         'text-black-500 hover:text-wedic-blue-500': scrolled || mobileMenu
                     }">
                     About Us</a>
-
                 <a href="{{ route('contactUs') }}" class="nav-link"
                     :class="{
                         'text-wedic-blue-200 hover:text-wedic-blue-500': !scrolled && !
                             mobileMenu,
                         'text-black-500 hover:text-wedic-blue-500': scrolled || mobileMenu
                     }">
-                    About Us</a>
+                    Contact Us
+                </a>
+
                 <a href="{{ route('store') }}"
                     class="bg-wedic-blue-500 text-black-500 px-6 py-2 rounded-full hover:bg-wedic-blue-600 transition transform hover:scale-105">
                     Store
@@ -91,10 +100,20 @@
 
             <a href="{{ route('expertise') }}"
                 class="block px-3 py-2 rounded-md text-wedic-blue-900 hover:bg-wedic-blue-500/10 hover:text-wedic-blue-500">Expertise</a>
-                
+
+            <a href="{{ route('projects') }}"
+                class="block px-3 py-2 rounded-md text-wedic-blue-900 hover:bg-wedic-blue-500/10 hover:text-wedic-blue-500">Projects</a>
+
             <a href="{{ route('aboutUs') }}"
                 class="block px-3 py-2 rounded-md text-wedic-blue-900 hover:bg-wedic-blue-500/10 hover:text-wedic-blue-500">About
                 Us</a>
+            <a href="{{ route('contactUs') }}" class="nav-link"
+                :class="{
+                    'text-wedic-blue-200 hover:text-wedic-blue-500': !scrolled && !
+                        mobileMenu,
+                    'text-black-500 hover:text-wedic-blue-500': scrolled || mobileMenu
+                }">
+                Contact Us</a>
 
             <a href="{{ route('store') }}"
                 class="bg-wedic-blue-500 text-black-500 px-6 py-2 rounded-full hover:bg-wedic-blue-600 transition transform hover:scale-105">

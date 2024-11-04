@@ -90,6 +90,9 @@ class TableComponent extends Component
             return redirect()->route('dashboard.project.edit', array('id' => $id));
         } elseif ($this->model == 'App\Models\Testimonial') {
             return redirect()->route('dashboard.testimonials.edit', array('id' => $id));
+        }elseif($this->model == 'App\Models\Product'){
+            return redirect()->route('dashboard.store.edit', array('id' => $id));
+
         } else {
             $this->toggleModel();
         }

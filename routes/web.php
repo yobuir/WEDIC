@@ -14,6 +14,7 @@ use App\Http\Controllers\Dashboard\Applicants\HomeController  as  ApplicantsHome
 use App\Http\Controllers\Dashboard\Testimonials\HomeController as TestimonialsHomeController;
 use App\Http\Controllers\Dashboard\Album\HomeController as AlbumsHomeController;
 use App\Http\Controllers\Dashboard\Mailing\HomeController as MailingsHomeController;
+use App\Http\Controllers\Dashboard\Store\HomeController as StoreHomeController;
 use App\Http\Controllers\Dashboard\Payment\HistoryController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PaymentController;
@@ -44,8 +45,8 @@ Route::get('/news', [NewsController::class, 'index'])->name('news');
 Route::get('/news/{category}/categories', [NewsController::class, 'category'])->name('news.category');
 Route::get('/news/view/{slug}', [NewsController::class, 'view'])->name('news.view');
 
-Route::get('/testimonials', [App\Http\Controllers\Website\ProjectsController::class, 'index'])->name('projects');
-Route::get('/achievement/{slug}', [App\Http\Controllers\Website\ProjectsController::class, 'view'])->name('project');
+Route::get('/projects', [App\Http\Controllers\Website\ProjectsController::class, 'index'])->name('projects');
+Route::get('/project/{slug}', [App\Http\Controllers\Website\ProjectsController::class, 'view'])->name('project');
 
 Route::get('/contact-us', [App\Http\Controllers\Website\ContactsController::class, 'index'])->name('contactUs');
 Route::post('/contact-us', [App\Http\Controllers\Website\ContactsController::class, 'store'])->name('contactUs.store');
@@ -174,6 +175,10 @@ Route::middleware([
             });
 
 
+            Route::get('/store', [StoreHomeController::class, 'index'])->name('store');
+            Route::get('/store/edit/{id}', [StoreHomeController::class, 'edit'])->name('store.edit');
+            Route::post('/store/edit/{id}', [StoreHomeController::class, 'update'])->name('store.edit.update');
+            
             Route::prefix('album')->name('albums.')->group(function () {
                 Route::get('/', [AlbumsHomeController::class, 'index'])->name('');
                 Route::get('/edit/{id}', [AlbumsHomeController::class, 'edit'])->name('edit');

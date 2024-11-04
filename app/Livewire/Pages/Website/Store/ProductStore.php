@@ -35,7 +35,7 @@ class ProductStore extends Component
     {
         $this->selectedProduct = Product::with('images')->find($productId);
         $this->currentImageIndex = 0;
-        $this->dispatchBrowserEvent('open-modal');
+        $this->dispatch('open-modal');
     }
 
     public function nextImage()
@@ -62,14 +62,19 @@ class ProductStore extends Component
                     ->orWhere('description', 'like', '%' . $this->search . '%');
             })
             ->when($this->category, function ($query) {
-                $query->where('category', $this->category);
+                $query->where('category_id', $this->category);
             })
             ->orderBy($this->sorting, $this->direction)
+            ->where('status', '!=', 'draft')
             ->paginate(12);
 
         return view('livewire.pages.website.store.product-store', [
             'products' => $products,
             'categories' => Category::all(),
+            'categoriesCount' => Category::count(),
+            'productsAvailableCount' => Product::where('status', 'available')->count(),
+            'productsSoldCount' => Product::where('status', 'sold')->count(),
+
         ]);
     }
 }

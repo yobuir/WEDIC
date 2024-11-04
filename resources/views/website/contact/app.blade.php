@@ -2,18 +2,33 @@
     {{-- resources/views/livewire/contact.blade.php --}}
     <div>
         {{-- Hero Section --}}
-        <div class="relative bg-gradient-to-r from-blue-600 to-purple-600 py-24">
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
+        <div class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 animate-gradient">
+            </div>
+
+            <!-- Animated background pattern -->
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-pattern opacity-20"></div>
+                <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+            </div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+                <div class="text-center space-y-8">
+                    <span
+                        class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-white/10 text-white backdrop-blur-sm">
+                        📞 Reach Out
+                    </span>
                     <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
-                        Contact Us
+                        Let's
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">
+                            Connect
+                        </span>
                     </h1>
                     <p class="mt-6 max-w-3xl mx-auto text-xl text-gray-200">
                         Get in touch with our team to discuss how we can help your organization
                     </p>
                 </div>
-            </div>
+            </div> 
         </div>
 
         {{-- Main Content --}}

@@ -7,7 +7,7 @@
          <div class="relative">
              <div class="bg-white rounded-xl p-8 shadow-xl">
                  <div class="flex items-center gap-6">
-                     <img src="{{ $testimonials[$activeTestimonial]['image'] }}"
+                     <img src="{{ asset('logo/main_logo.png') }}"
                          alt="{{ $testimonials[$activeTestimonial]['author'] }}"
                          class="w-24 h-24 rounded-full object-cover">
                      <div>

@@ -2,7 +2,7 @@
       <div class="relative overflow-hidden aspect-video">
           <a wire:navigate href="{{ route('news.view', $blog?->slug) }}">
               <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  src="{{ $blog?->featured_image }}" alt="{{ $blog?->title }}" />
+                  src="https://images.unsplash.com/photo-1531857414472-edf16a1bb78c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="{{ $blog?->title }}" />
           </a>
           <div class="absolute top-4 right-4 flex">
               <a wire:navigate href="{{ route('news.category', $blog?->category?->id) }}"
